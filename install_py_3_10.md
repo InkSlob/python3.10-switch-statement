@@ -99,7 +99,7 @@ None
 
 We can add an if clause to a pattern, known as a “guard”. If the guard is false, match goes on to try the next case block. Note that value capture happens before the guard is evaluated:
 
-```python3
+```Python3
 def use_a_guard(x,y):
     match x,y:
         case x, y if x == y:
