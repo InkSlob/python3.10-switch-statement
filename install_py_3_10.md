@@ -70,3 +70,49 @@ I'm a teapot
 Something's wrong with the Internet
 ```
 
+Note the last block: the variable name, _, acts as a wildcard and insures the subject will always match. The use of _ is optional.
+
+Removing the Wildcard will result in:
+
+```Python3
+def http_error2(status):
+    match status:
+        case 400:
+            return "Bad request"
+        case 404:
+            return "Not found"
+        case 418:
+            return "I'm a teapot"
+```
+OUTPUT:
+Bad request
+Bad request
+Not found
+Bad request
+I'm a teapot
+Not found
+I'm a teapot
+None
+```
+
+### Guard
+
+We can add an if clause to a pattern, known as a “guard”. If the guard is false, match goes on to try the next case block. Note that value capture happens before the guard is evaluated:
+
+```python3
+def use_a_guard(x,y):
+    match x,y:
+        case x, y if x == y:
+            print(f"The point is located on the diagonal Y=X at {x}.")
+        case x, y:
+            print(f"Point is not on the diagonal.")
+```
+OUTPUT:
+```
+The point is located on the diagonal Y=X at 1.
+None
+Point is not on the diagonal.
+None
+The point is located on the diagonal Y=X at 3.
+None
+```
