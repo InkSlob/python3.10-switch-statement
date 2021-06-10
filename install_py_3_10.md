@@ -85,6 +85,7 @@ def http_error2(status):
             return "I'm a teapot"
 ```
 OUTPUT:
+```
 Bad request
 Bad request
 Not found
